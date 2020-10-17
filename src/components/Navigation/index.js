@@ -45,7 +45,7 @@ const NavigationAuth = () => (
 
 const NavigationNonAuth = () => (
   <Navbar bg="light" expand="lg">
-    <Navbar.Brand Link="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar.Brand Link="#home">DuoCode</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
