@@ -1,23 +1,23 @@
 import app from "firebase/app";
 import "firebase/auth";
-import "firebase/database";
+import "firebase/firestore";
 
-var config = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
-  measurementId: "",
+const config = {
+  apiKey: "AIzaSyA1aaNv6rrsz8HQp2wI_5tOwF_JU4l7tAY",
+  authDomain: "duocode-40abc.firebaseapp.com",
+  databaseURL: "https://duocode-40abc.firebaseio.com",
+  projectId: "duocode-40abc",
+  storageBucket: "duocode-40abc.appspot.com",
+  messagingSenderId: "609177709884",
+  appId: "1:609177709884:web:5f37005613d414e4604239",
+  measurementId: "G-8HSEF905MY",
 };
 
 class Firebase {
   constructor() {
     app.initializeApp(config);
     this.auth = app.auth();
-    this.db = app.database();
+    this.db = app.firestore();
   }
 
   //authentication API (contextAPI)
@@ -36,12 +36,12 @@ class Firebase {
 
   //user API
 
-  user = (uid) => this.db.ref(`users/${uid}`);
+  user = (uid) => this.db.doc(`users/${uid}`);
 
-  users = () => this.db.ref("users");
+  users = () => this.db.doc("users");
 
   //chat API
-  chatRef = () => this.db.ref("general");
+  chatRef = () => this.db.doc("general");
 }
 
 export default Firebase;

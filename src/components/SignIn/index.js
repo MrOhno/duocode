@@ -6,14 +6,16 @@ import { PasswordForgetLink } from "../PasswordForget";
 import { SignUpLink } from "../SignUp";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
-
+import { Form, Button, Container, Card } from "react-bootstrap";
 const SignInPage = () => (
-  <div>
-    <h1>SignIn</h1>
-    <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
-  </div>
+  <Container style={{ display: "flex", justifyContent: "center" }}>
+    <Card style={{ padding: "50px", marginTop: "50px", width: "60%" }}>
+      <h1 style={{ textAlign: "center" }}>SignIn</h1>
+      <SignInForm />
+      <PasswordForgetLink />
+      <SignUpLink />
+    </Card>
+  </Container>
 );
 
 const INITIAL_STATE = {
@@ -55,27 +57,38 @@ class SignInFormBase extends Component {
     const isInvalid = password === "" || email === "";
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+      <Container>
+        <Form onSubmit={this.onSubmit}>
+          {error && <h2 color="danger">{error.message}</h2>}
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              name="email"
+              onChange={this.onChange}
+              type="email"
+              value={email}
+              placeholder="Enter email"
+            />
+          </Form.Group>
 
-        {error && <p>{error.message}</p>}
-      </form>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              name="password"
+              onChange={this.onChange}
+              type="password"
+              value={password}
+              placeholder="Password"
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Button disabled={isInvalid} variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Container>
     );
   }
 }
