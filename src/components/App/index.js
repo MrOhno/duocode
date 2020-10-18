@@ -8,9 +8,11 @@ import PasswordForgetPage from "../PasswordForget/index";
 import HomePage from "../Home";
 import AccountPage from "../Account";
 import AdminPage from "../Admin";
+import Module from "../Module";
 import * as ROUTES from "../../constants/routes";
 
 import { withAuthentication } from "../Session";
+import Course from "../Course";
 
 const App = () => (
   <Router>
@@ -23,6 +25,8 @@ const App = () => (
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.ADMIN} component={AdminPage} />
+      <Route path={ROUTES.MODULE} component={Module} />
+      <Route path={ROUTES.COURSE} component={Course} />
     </div>
   </Router>
 );

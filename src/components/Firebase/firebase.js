@@ -1,6 +1,7 @@
 import app from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/database";
 
 const config = {
   apiKey: "AIzaSyA1aaNv6rrsz8HQp2wI_5tOwF_JU4l7tAY",
@@ -18,6 +19,7 @@ class Firebase {
     app.initializeApp(config);
     this.auth = app.auth();
     this.db = app.firestore();
+    this.dbRealTime = app.database();
   }
 
   //authentication API (contextAPI)
@@ -42,6 +44,10 @@ class Firebase {
 
   //chat API
   chatRef = () => this.db.doc("general");
+
+  // Pair
+
+  pair = () => this.dbRealTime.ref("/pair");
 }
 
 export default Firebase;
