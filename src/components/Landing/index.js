@@ -20,6 +20,7 @@ const index = () => {
           <AceEditor
             style={{boxShadow: "0 0 20px rgba(0, 0, 0, 0.5)" }}
             placeholder="Play with code !"
+            value='print("Hello, world!")'
             mode="javascript"
             theme="monokai"
             fontSize={20}
