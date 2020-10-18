@@ -47,7 +47,10 @@ class Firebase {
 
   // Pair
 
-  pair = () => this.dbRealTime.ref("/pair");
+  realTimeCode = async (cb) => {
+    let data = await this.dbRealTime.ref("/pair").on("value");
+    return data;
+  };
 }
 
 export default Firebase;

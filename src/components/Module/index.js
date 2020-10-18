@@ -12,18 +12,23 @@ import { compose } from "recompose";
 
 const Module = (props) => {
   const [data, setData] = useState([]);
-
+  const [code, setCode] = useState("function test() {}");
   let id = props.match.params.id;
   useEffect(() => {
     fetch(`http://localhost:3000/checkpoints/moduleID=${id}`)
       .then((res) => res.json())
-      .then((data) => setData(data.data));
-    // props.firebase.pair.on("value", (snapshot) => {
-    //   console.log(snapshot.val());
-    // });
+      .then((data) => {
+        setData(data.data);
+      });
+    props.firebase.dbRealTime.ref("code/").on("value", (snap) => {
+      setCode(snap.val());
+    });
   }, []);
   const onChange = (newVal) => {
-    console.log(newVal);
+    props.firebase.dbRealTime.ref("/").set({
+      code: newVal,
+    });
+    setCode(newVal);
   };
   //state = { value: 0, previous: 0 };
   const [curIdx, setCurIdx] = useState(0);
@@ -85,7 +90,7 @@ const Module = (props) => {
         <AceEditor
           style={{ width: "70%", boxShadow: "0 0 20px rgba(0, 0, 0, 0.5)" }}
           placeholder="Play with code !"
-          value={data.length > 0 ? data[curIdx].content : ""}
+          value={code}
           mode="javascript"
           theme="monokai"
           fontSize={20}
@@ -105,5 +110,5 @@ const Module = (props) => {
     </Container>
   );
 };
-
-export default compose(withRouter, withFirebase)(Module);
+const resModule = compose(withRouter, withFirebase)(Module);
+export default resModule;

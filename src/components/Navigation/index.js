@@ -30,15 +30,14 @@ const NavigationAuth = () => (
       <Nav className="mr-auto">
         <Nav.Link href={ROUTES.HOME}>Home</Nav.Link>
         <Nav.Link href={ROUTES.ACCOUNT}>Account</Nav.Link>
-        <Nav.Link href={ROUTES.ADMIN}>Admin</Nav.Link>
-        <Nav.Link>
-          <SignOutButton />
-        </Nav.Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
         <Button variant="outline-success">Search</Button>
       </Form>
+      <Nav.Link>
+        <SignOutButton />
+      </Nav.Link>
     </Navbar.Collapse>
   </Navbar>
 );
