@@ -2,7 +2,7 @@
 
 **Award outstanding ideas in MindX Hackathon 2020**
 
-![](gifdemo.gif)
+![](demo.gif)
 
 **Inperation:** \
 We made DuoCode for everyone interested in coding or computer science to step foot inside this field. \
