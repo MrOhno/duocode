@@ -1,13 +1,22 @@
-# reactJsFirebase-auth
-this is a react Js Application Boilerplate with Authentication, it included Login, Register and Password reset using Firebase
-To get started: 
+# DuoCode
 
- $ gitclone https://github.com/Eberewill/reactJsFirebase-auth.git appnam
- cd appname
- $ npm install
- 
- Go to firebase and craate a web application you will get your irebase Config details,
- 
- navigate to src/Components/Firebase/firebase.js and input your values
- 
- bravo you can now authenticate users on your react App. 
+**Award outstanding ideas in MindX Hackathon 2020**
+
+![](gifdemo.gif)
+
+**Inperation:** \
+We made DuoCode for everyone interested in coding or computer science to step foot inside this field. \
+Main mission: interactive IDE workspace to encourage networking and pair programming with other students. \
+The website has two main features: Networking and Pair programming.
+
+
+**Process:** 
+1. We use authentication by Google Firebase and store user infomation with Firestore
+2. We stored our database with mongoDB Atlas
+3. We built Back-End RESTful API with Node.js, JavaScript
+4. We built Front-End with React, React-Bootstrap
+
+**Team:** \
+Trang Hoang \
+Long Pham \
+Hanh Nguyen
